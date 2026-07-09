@@ -59,6 +59,11 @@ public class ArrayADT
 		}
 		
 	}
+	public boolean isEmpty() 
+	{
+		return this.size == 0;
+	}
+	
 	public void printArray()
 	{
 		for(int i=0;i<size;i++)
@@ -102,6 +107,30 @@ public class ArrayADT
 			}
 		}
 	}
+	public int recusvSearch(int element,int index)
+	{
+		if(isEmpty())
+		{
+			System.out.println("array is empty");
+			return -1;
+		}
+		 if(index<size)
+		{
+			System.out.println("element not found");
+			return -1;
+		}
+		if(array[index]==element)
+		{
+				return index;
+		}
+		else
+		{
+				return recusvSearch(element,index++);
+		}
+		
+		
+	}
+	
 	
 	
 	public static void main(String [] args)
@@ -120,6 +149,7 @@ public class ArrayADT
 		// {
 			// System.out.println(array[i]);
 		// }
+		System.out.println("element is found at "+arr.recusvSearch(12,0));
 		arr.printArray();
 	}
 }
